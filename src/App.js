@@ -1,16 +1,13 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Detail from "./routes/Detail";
-import Home from "./routes/Home";
+import { useSelector } from "react-redux";
 
 function App() {
+  const counter = useSelector((state) => state.counter);
   return (
-    <Router>
-      <Routes>
-        <Route path="/" exact element={<Home />} />
-        <Route path="/:id" element={<Detail />} />
-      </Routes>
-    </Router>
+    <div>
+      <h1>Counter App</h1>
+      <h2>{counter}</h2>
+    </div>
   );
 }
 
