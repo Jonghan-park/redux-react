@@ -2,6 +2,9 @@ import { createStore } from "redux";
 
 const INC = "INC";
 const DEC = "DEC";
+const ADD = "ADD";
+
+const MINUS = "MINUS";
 
 const reducer = (state = { counter: 0 }, action) => {
   // Synchronous Function
@@ -11,6 +14,10 @@ const reducer = (state = { counter: 0 }, action) => {
       return { counter: state.counter + 1 };
     case DEC:
       return { counter: state.counter - 1 };
+    case ADD:
+      return { counter: state.counter + action.payload };
+    case MINUS:
+      return { counter: state.counter - action.payload };
     default:
       return state;
   }
